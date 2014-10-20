@@ -3,7 +3,7 @@ var exec = require('exec-then');
 var schedule = require('node-schedule');
 var moment = require('moment');
 
-var today = moment("2014, 11, 1");
+var today = moment("2014, 10, 20");
 var setDate = moment("2014, 9, 1")
 
 // var j = schedule.scheduleJob(today.format(), function(){
@@ -34,7 +34,7 @@ exec('git add -A',
       console.log('exec error: ' + error);
     }
 }).then(function(){
-      exec("git commit --date='"+date.format("YYYY, DD, MM")+"' -m 'new'",
+      exec("git commit --date='"+date.format("YYYY, DD, MM")+"' -m'"+date.format("YYYY, DD, MM")+"'",
   function (error, stdout, stderr) {
     console.log('commit')
 
