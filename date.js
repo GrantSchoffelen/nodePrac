@@ -3,8 +3,8 @@ var exec = require('exec-then');
 var schedule = require('node-schedule');
 var moment = require('moment');
 
-var today = moment("2014, 11, 30");
-var setDate = moment("2014, 11, 1")
+var today = moment("2014, 11, 1");
+var setDate = moment("2014, 9, 1")
 
 // var j = schedule.scheduleJob(today.format(), function(){
 //    pushChanges(day)
