@@ -3,8 +3,8 @@ var exec = require('exec-then');
 var schedule = require('node-schedule');
 var moment = require('moment');
 
-var today = moment();
-var setDate = moment("2014, 12, 1")
+var today = moment("2014, 11, 30");
+var setDate = moment("2014, 11, 1")
 
 // var j = schedule.scheduleJob(today.format(), function(){
 //    pushChanges(day)
@@ -28,8 +28,7 @@ function dayCommit(date){
 }); 
 exec('git add -A',
   function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
+    console.log('add')
     if (error !== null) {
       console.log('err2')
       console.log('exec error: ' + error);
@@ -37,8 +36,7 @@ exec('git add -A',
 }).then(function(){
       exec("git commit --date='"+date.format("YYYY, DD, MM")+"' -m 'new'",
   function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
+    console.log('commit')
 
     if (error !== null) {
       console.log('exec error: ' + error);
@@ -46,7 +44,7 @@ exec('git add -A',
     }
 }).then(function(){
    exec('git push origin master', function(error, stdout, stderr){
-      console.log('pushed')
+      console.log('push')
     })
 });
 
@@ -62,7 +60,7 @@ today = today.subtract(1, "days")
 
 
 setInterval(function(){
-  console.log(today, "hit")
+  console.log(today.format('YYYY, DD, MM'), "hit")
   dayCommit(today)
 }, 1000);
 
