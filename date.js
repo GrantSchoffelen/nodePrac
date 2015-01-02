@@ -1,10 +1,12 @@
 var fs = require('fs');
 var exec = require('exec-then');
+var schedule = require('node-schedule');
+
 
 function pushChanges(date){
 
 
-fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfasfd", function(err) {
+fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfasfd" +date, function(err) {
     if(err) {
     	console.log('err1')
         return console.log(err);
@@ -41,7 +43,14 @@ exec('git add -A',
 });
 }
 
-setInterval(function(){
-  pushChanges("2015, 1, 2")
-}, 5000);
+var today = new Date();
+
+var j = schedule.scheduleJob(today, function(){
+    pushChanges('2015, 2, 1');
+});
+
+
+// setInterval(function(){
+//   pushChanges("2015, 1, 2")
+// }, 5000);
 
