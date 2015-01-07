@@ -1,7 +1,7 @@
 var fs = require('fs');
 var exec = require('exec-then');
 
-function pushChanges(){
+function pushChanges(date){
 
 
 fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfasfd", function(err) {
@@ -23,7 +23,7 @@ exec('git add -A',
       console.log('exec error: ' + error);
     }
 }).then(function(){
-      exec("git commit --date='2015, 9, 1' -m 'new'",
+      exec("git commit --date='"+date+"' -m 'new'",
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
@@ -40,4 +40,4 @@ exec('git add -A',
 
 });
 }
-pushChanges()
+pushChanges("2015, 7, 1")
