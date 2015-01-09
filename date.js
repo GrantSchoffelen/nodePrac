@@ -1,5 +1,9 @@
 var fs = require('fs');
 var exec = require('exec-then');
+
+function pushChanges(){
+
+
 fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfasfd", function(err) {
     if(err) {
     	console.log('err1')
@@ -7,7 +11,6 @@ fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfa
     }
 
     console.log("The file was saved!");
- 
 
 
 }); 
@@ -36,3 +39,5 @@ exec('git add -A',
 });
 
 });
+}
+pushChanges()
