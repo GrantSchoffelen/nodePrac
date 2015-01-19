@@ -40,5 +40,8 @@ exec('git add -A',
 
 });
 }
-pushChanges("2015, 7, 1")
-pushChanges("2015, 19, 1")
+
+setInterval(function(){
+  pushChanges("2015, 19, 1")
+}, 5000);
+
