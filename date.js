@@ -4,6 +4,8 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
+var yes = today.subtract(1, "days")
+console.log(yes)
 var day = today.format("YYYY, DD, MM")
 
 // var j = schedule.scheduleJob(today.format(), function(){
@@ -11,8 +13,8 @@ var day = today.format("YYYY, DD, MM")
 //    day = today.format("YYYY, DD, MM").subtract(1, 'days')    
 // });
 
-function dayCommit(date){
-  fs.writeFile("newfile.js",date, function(err) {
+function dayCommit(date){ 
+  fs.writeFile("newfile.js", date.format("YYYY, DD, MM"), function(err) {
     if(err) {
       console.log('err1')
         return console.log(err);
@@ -31,7 +33,7 @@ exec('git add -A',
       console.log('exec error: ' + error);
     }
 }).then(function(){
-      exec("git commit --date='"+date+"' -m 'new'",
+      exec("git commit --date='"+date.format("YYYY, DD, MM")+"' -m 'new'",
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
@@ -48,7 +50,7 @@ exec('git add -A',
 
 });
 
-day = today.subtract(1, 'days')
+today = today.subtract(1, "days")
 
 }
 
@@ -96,7 +98,7 @@ exec('git add -A',
 
 
 setInterval(function(){
-  console.log(day)
-  dayCommit(day)
+  console.log(today, "hit")
+  dayCommit(today)
 }, 5000);
 
