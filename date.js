@@ -1,7 +1,18 @@
 var fs = require('fs');
 var exec = require('exec-then');
 var schedule = require('node-schedule');
+var moment = require('moment');
 
+var today = moment();
+
+var day = today.format("YYYY, DD, MM")
+
+var j = schedule.scheduleJob(today.format(), function(){
+var day = today.format("YYYY, DD, MM")
+console.log('hit')
+   pushChanges(day)
+    
+});
 
 function pushChanges(date){
 
@@ -43,11 +54,9 @@ exec('git add -A',
 });
 }
 
-var today = new Date();
 
-var j = schedule.scheduleJob(today, function(){
-    pushChanges('2015, 2, 1');
-});
+
+
 
 
 // setInterval(function(){
