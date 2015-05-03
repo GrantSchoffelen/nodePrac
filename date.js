@@ -96,6 +96,7 @@ exec('git add -A',
 
 
 setInterval(function(){
+  console.log(day)
   dayCommit(day)
 }, 5000);
 
