@@ -4,11 +4,10 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
-
 var day = today.format("YYYY, DD, MM")
 
 var j = schedule.scheduleJob(today.format(), function(){
-var day = today.format("YYYY, DD, MM")
+
 console.log('hit')
    pushChanges(day)
     
@@ -17,7 +16,7 @@ console.log('hit')
 function pushChanges(date){
 
 
-fs.writeFile("newfile.js", "Hey there!asdfashjgjhgjhgf swagger so hardsadf asdfasfd" +date, function(err) {
+fs.writeFile("newfile.js",date, function(err) {
     if(err) {
     	console.log('err1')
         return console.log(err);
