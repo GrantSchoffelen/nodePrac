@@ -4,7 +4,7 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
-var setDate = moment("2014, 8, 3")
+var setDate = moment("2014, 5, 3")
 
 // var j = schedule.scheduleJob(today.format(), function(){
 //    pushChanges(day)
