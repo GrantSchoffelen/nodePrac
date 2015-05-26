@@ -6,10 +6,7 @@ var moment = require('moment');
 var today = moment();
 var setDate = moment("2014, 5, 3")
 
-// var j = schedule.scheduleJob(today.format(), function(){
-//    pushChanges(day)
-//    day = today.format("YYYY, DD, MM").subtract(1, 'days')    
-// });
+
 
 function dayCommit(date){ 
   if(setDate > date ){
