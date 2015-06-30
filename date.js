@@ -9,7 +9,7 @@ var setDate = moment("2015, 05, 06")
 
 
 function dayCommit(date){ 
-  
+  console.log(date.diff(setDate))
   if(setDate > date ){
     console.log('done')
     return 
