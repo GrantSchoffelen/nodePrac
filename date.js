@@ -4,7 +4,7 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
-var setDate = moment("2015, 06, 06")
+var setDate = moment("2015, 28, 06")
 
 
 
@@ -60,6 +60,7 @@ today = today.subtract(1, "days")
 
 setInterval(function(){
   console.log(today.format('YYYY, DD, MM'), "hit")
+  console.log(today)
   dayCommit(today)
 }, 1000);
 
