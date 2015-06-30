@@ -4,7 +4,7 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
-var setDate = moment("2014, 05, 06")
+var setDate = moment("2014, 06, 06")
 
 
 
