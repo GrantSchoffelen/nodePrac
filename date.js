@@ -4,14 +4,14 @@ var schedule = require('node-schedule');
 var moment = require('moment');
 
 var today = moment();
-var setDate = moment("2015, 05, 06")
+var setDate = moment("2015, 06, 06")
 
 
 
 function dayCommit(date){ 
   console.log(today._d, setDate._d)
   console.log(date.diff(setDate, 'days'))
-  if(setDate > date ){
+  if(date.diff(setDate, 'days') < 0){
     console.log('done')
     return 
   }
